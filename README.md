@@ -40,7 +40,7 @@ A full-stack **Household Services Web Application** built with **Flask**, inspir
 ### 1️⃣ Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/household-services-web-app.git
+git clone https://github.com/sub-shi/Household-Services-Web-Application
 cd household-services-web-app
 ```
 
