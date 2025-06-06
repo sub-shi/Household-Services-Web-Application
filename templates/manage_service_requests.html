@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Service Requests</title>
+    <link rel="stylesheet" href="/static/manage_service_requests.css">
+</head>
+<body>
+    <nav>
+        <a href="/customer_dashboard">Home</a>
+        <a href="/customer_bookings">Bookings</a>
+        <a href="/manage_service_requests">Manage Service Requests</a>
+        <a href="/logout">Logout</a>
+        <a href="/customer_profile">Profile</a>
+    </nav>
+
+    <h2>Manage Service Requests</h2>
+<ul>
+    {% for booking in bookings %}
+    <li>
+        <strong>Service:</strong> {{ booking.service.name }}<br>
+        <strong>Booking Date:</strong> {{ booking.date_of_request }}<br>
+        <strong>Status:</strong> {{ booking.service_status }}<br>
+        <strong>Remarks:</strong> {{ booking.remarks or "No remarks provided" }}<br>
+        <form action="/update_service_request/{{ booking.id }}" method="post">
+            <label for="remarks">Update Remarks:</label>
+            <input type="text" id="remarks" name="remarks" value="{{ booking.remarks }}">
+            <button type="submit">Update</button>
+        </form>
+        <form action="/close_service_request/{{ booking.id }}" method="post">
+            <button type="submit">Close Request</button>
+        </form>
+        
+        {% if booking.service_status == 'closed' %}
+        <form action="/reopen_service_request/{{ booking.id }}" method="post">
+            <button type="submit">Reopen Request</button>
+        </form>
+        {% endif %}
+
+        <form action="/delete_service_request/{{ booking.id }}" method="post" style="display: inline;">
+            <button type="submit" onclick="return confirm('Are you sure you want to delete?')">Delete</button>
+        </form>
+    </li>
+    <hr>
+    {% endfor %}
+</ul>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Dashboard</title>
+    <link rel="stylesheet" href="/static/customer_dashboard.css">
+</head>
+<body>
+    <nav>
+        <a href="/customer_dashboard">Home</a>
+        <a href="/customer_bookings">Bookings</a>
+        <a href="/manage_service_requests">Manage Service Requests</a>
+        <a href="/logout">Logout</a>
+        <a href="/customer_profile">Profile</a>
+    </nav>
+
+    <h2>Welcome, {{ username }}</h2>
+
+    <h3>Available Services</h3>
+
+    <form method="POST" action="/customer_dashboard">
+        <input type="text" name="query" placeholder="Search by service name">
+        <input type="text" name="pincode" placeholder="Search by pincode">
+        <button type="submit">Search</button>
+    </form>
+    <ul>
+        {% if services %}
+            {% for service in services %}
+            <li>
+                <strong>Service Name:</strong> {{ service.name }}<br>
+                <strong>Pincode:</strong> {{ service.pincode }}<br>
+                <strong>Base Price:</strong> {{ service.price }}rs<br>
+                <strong>Time Required:</strong> {{ service.time_required }}hrs<br>
+                <form action="/book_service/{{ service.id }}" method="POST">
+                    <button type="submit">Book Service</button>
+                </form>
+            </li>
+            <hr>
+            {% endfor %}
+        {% else %}
+            <p>No services found matching your query.</p>
+        {% endif %}
+    </ul>
+
+
+    <!-- Graph Section -->
+    <h3>Service Requests Overview</h3>
+    <div>
+        {{ chart_html|safe }}
+    </div>
+
+</body>
+</html>

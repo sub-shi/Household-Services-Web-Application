@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Profile</title>
+    <link rel="stylesheet" href="/static/professional_profile.css">
+</head>
+<body>
+    <nav>
+        <a href="/pro_dashboard">Home</a>
+        <a href="/history">History</a>
+        <a href="/logout">Logout</a>
+        <a href="/profile">Profile</a>
+    </nav>
+
+    <h2>Professional Profile</h2>
+
+    <form action="/profile" method="post" enctype="multipart/form-data">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" value="{{ professional.name }}" required><br>
+
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" value="{{ professional.username }}" disabled><br>
+
+        <label for="service_type">Service Type:</label>
+        <input type="text" id="service_type" name="service_type" value="{{ professional.service_type }}" disabled><br>
+
+        <label for="description">Description:</label>
+        <textarea id="description" name="description">{{ professional.description }}</textarea><br>
+
+        <label for="experience">Experience (years):</label>
+        <input type="text" id="experience" name="experience" value="{{ professional.experience }}"><br>
+
+        <label for="file">Upload Profile Documents (e.g., certificates):</label>
+        <input type="file" id="file" name="file"><br>
+
+        <button type="submit">Save Changes</button>
+    </form>
+
+</body>
+</html>

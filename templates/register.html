@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="/static/register.css">
+</head>
+<body>
+    <form action="/register" method="post">
+        <h2>Register</h2>
+        <div>
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name" required><br>
+        </div>
+
+        <div>
+            <label for="username">Username:</label><br>
+            <input type="text" id="username" name="username" required><br>
+        </div>
+
+        <div>
+            <label for="role">Role:</label><br>
+            <select id="role" name="role" required>
+                <option value="customer">Customer</option>
+                <option value="service_pro">Service Professional</option>
+            </select><br>
+        </div>
+
+        <div>
+            <label for="service_type">Service Type (if Service Professional):</label><br>
+            <input type="text" id="service_type" name="service_type"><br>
+        </div>
+
+        <div>
+            <label for="experience">Experience (in years, if Service Professional):</label><br>
+            <input type="number" id="experience" name="experience"><br>
+        </div>
+
+        <div>
+            <label for="password">Password:</label><br>
+            <input type="password" id="password" name="password" required><br>
+        </div>
+
+        <div>
+            <label for="cpassword">Confirm Password:</label><br>
+            <input type="cpassword" id="password" name="cpassword" required>
+        </div>
+        <br>
+        <button type="submit">Register</button>
+    </form>
+</body>
+</html>

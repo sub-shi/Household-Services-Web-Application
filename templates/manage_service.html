@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Services</title>
+    <link rel="stylesheet" href="/static/manage_services.css">
+</head>
+<body>
+    <nav>
+        <a href="/admin_dashboard">Home</a>
+        <a href="/manage_customers">Customers</a>
+        <a href="/manage_professionals">Professionals</a>
+        <a href="/manage_services">Services</a>
+        <a href="/admin_bookings">Bookings</a>
+        <a href="/logout">Logout</a>
+    </nav>
+
+    <h2>Manage Services</h2>
+
+    <h3>Services Availabale</h3>
+    {% for service in services %}
+    <li>
+        <strong>Service Name:</strong> {{ service.name }} <br>
+        <strong>Base Price:</strong> {{ service.price }} <br>
+        <strong>Time Required:</strong> {{ service.time_required }} hr
+        <form action="/update_service/{{ service.id }}" method="post">
+            <input type="text" name="name" value="{{ service.name }}" required>
+            <input type="number" name="price" value="{{ service.price }}" required>
+            <input type="number" name="time_required" value="{{ service.time_required }}" required>
+            <button type="submit">Update</button>
+        </form>
+        
+        {% if not service.is_booked %}
+        <form action="/delete_service/{{ service.id }}" method="post">
+            <button type="submit">Delete</button>
+        </form>
+        {% else %}
+        <p><em>This service cannot be deleted because it is booked.</em></p>
+        {% endif %}
+    </li>
+    <hr>
+    {% endfor %}
+    
+</body>
+</html>

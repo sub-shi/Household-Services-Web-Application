@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="/static/admin_dashboard.css">
+</head>
+<body>
+    <nav>
+        <a href="/admin_dashboard">Home</a>
+        <a href="/manage_customers">Customers</a>
+        <a href="/manage_professionals">Professionals</a>
+        <a href="/manage_services">Services</a>
+        <a href="/admin_bookings">Bookings</a>
+        <a href="/logout">Logout</a>
+        <form action="/search" method="POST">
+            <input type="text" name="query" placeholder="Search professionals by usernames" required>
+            <button type="submit">Search</button>
+        </form>
+    </nav>
+
+
+    <h1>Admin Dashboard</h1>
+    <p>Welcome to the admin dashboard.</p>
+
+
+    <div>
+        <a href="/create_service">Create New Service</a>
+    </div>
+
+
+    <!-- Pie Chart Section -->
+    <section>
+        <h2>Overall Service Request Status</h2>
+        <!-- Pie chart will be injected here -->
+        {{ graph_html|safe }}
+    </section>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login Page</title>
+    <link rel="stylesheet" href="/static/adminlogin.css">
+</head>
+<body>
+    <form action="/adminlogin" method="POST" method="GET">
+        <h3>
+            Admin Login
+        </h3>
+        <label for="admin">UserName:</label><br>
+        <input type="text" id="admin_id" name="admin_id" required><br>
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password" required><br>
+        <button type="submit">Login</button><br>
+        <h3>{% if message %}
+            {{ message }}
+        {% endif %}
+        </h3>
+    </form>
+    
+</body>
+</html>

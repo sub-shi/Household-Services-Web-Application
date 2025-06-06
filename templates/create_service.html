@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New Service</title>
+    <link rel="stylesheet" href="/static/create_service.css">
+</head>
+<body>
+    <nav>
+        <a href="/admin_dashboard">Home</a>
+        <a href="/manage_customers">Customers</a>
+        <a href="/manage_professionals">Professionals</a>
+        <a href="/manage_services">Services</a>
+        <a href="/admin_bookings">Bookings</a>
+    </nav>
+    <h2>Create New Service</h2>
+    <form action="/create_service" method="post">
+        <div>
+            <label for="name">Service Name:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div>
+            <label for="pincode">Pincode:</label>
+            <input type="number" id="pincode" name="pincode" required>
+        </div>
+        <div>
+            <label for="description">Description:</label>
+            <input type="text" id="description" name="description" required>
+        </div>
+        <div>
+            <label for="price">Base Price(/hr):</label>
+            <input type="number" id="price" name="price" required>
+        </div>
+
+        <div>
+            <label for="time">Time Required(/hr):</label>
+            <input type="number" id="time" name="time" required>
+        </div>
+        <button type="submit">Create Service</button>
+    </form>
+</body>
+</html>

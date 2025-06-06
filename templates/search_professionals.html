@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Professionals</title>
+    <link rel="stylesheet" href="/static/search_professionals.css">
+</head>
+<body>
+    <nav>
+        <a href="/admin_dashboard">Home</a>
+        <a href="/manage_customers">Customers</a>
+        <a href="/manage_professionals">Professionals</a>
+        <a href="/manage_services">Services</a>
+        <a href="/admin_bookings">Bookings</a>
+    </nav>
+    <h2>Search Results for Professionals</h2>
+
+    {% if professionals %}
+        <ul>
+            {% for professional in professionals %}
+            <li>
+                <strong>Username:</strong> {{ professional.username }}<br>
+                <strong>Name:</strong> {{ professional.name }}<br>
+                <strong>Service Type:</strong> {{ professional.service_type }}<br>
+                <strong>Status:</strong> {{ professional.status }}<br>
+
+                <form action="/block_professional/{{ professional.id }}" method="post" style="display: inline;">
+                    <button type="submit" {{ 'disabled' if professional.status == 'blocked' }}>Block</button>
+                </form>
+
+                <form action="/unblock_professional/{{ professional.id }}" method="post" style="display: inline;">
+                    <button type="submit" {{ 'disabled' if professional.status == 'approved' }}>Unblock</button>
+                </form>
+
+                <form action="/admin/review_professional/{{ professional.id }}" method="post" style="display: inline;">
+                    <button type="submit">Review</button>
+                </form>
+            </li>
+            <hr>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No professionals found matching your query.</p>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service History</title>
+    <link rel="stylesheet" href="/static/history.css">
+</head>
+<body>
+    <nav>
+        <a href="/pro_dashboard">Home</a>
+        <a href="/history">History</a>
+        <a href="/logout">Logout</a>
+        <a href="/profile">Profile</a>
+    </nav>
+
+    <h2>Service History</h2>
+
+    {% if service_requests %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Request ID</th>
+                    <th>Service ID</th>
+                    <th>Customer ID</th>
+                    <th>Professional ID</th>
+                    <th>Date of Request</th>
+                    <th>Date of Completion</th>
+                    <th>Service Status</th>
+                    <th>Action</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                {% for request in service_requests %}
+                    <tr>
+                        <td>{{ request.id }}</td>
+                        <td>{{ request.service_id }}</td>
+                        <td>{{ request.customer_id }}</td>
+                        <td>{{ request.professional_id }}</td>
+                        <td>{{ request.date_of_request }}</td>
+                        <td>{{ request.date_of_completion or 'Not yet completed' }}</td>
+                        <td>{{ request.service_status }}</td>
+                        <td>
+                            {% if request.service_status == 'accepted' %}
+                                <!-- Form to close the request (change status to completed) -->
+                                <form action="/history" method="POST">
+                                    <input type="hidden" name="request_id" value="{{ request.id }}">
+                                    <button type="submit" >Close</button>
+                                </form>
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No accepted service requests at the moment.</p>
+    {% endif %}
+</body>
+</html>

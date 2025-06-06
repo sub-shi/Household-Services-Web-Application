@@ -1,0 +1,105 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    color: #343a40;
+}
+
+
+nav {
+    background-color: #0056b3;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+
+h2 {
+    text-align: center;
+    color: #0056b3;
+    margin: 20px 0;
+}
+
+
+div {
+    background-color: #ffffff;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+div p {
+    font-size: 16px;
+    margin: 10px 0;
+    line-height: 1.5;
+}
+
+div strong {
+    color: #343a40;
+}
+
+
+form {
+    margin-top: 20px;
+}
+
+form label {
+    font-size: 16px;
+    color: #343a40;
+    display: block;
+    margin-bottom: 5px;
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    resize: none;
+}
+
+textarea:focus {
+    border-color: #0056b3;
+    outline: none;
+}
+
+button {
+    margin-top: 10px;
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 15px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #003f8a;
+}
+
+/* Success Message */
+p[style="color: green;"] {
+    font-size: 14px;
+    text-align: center;
+    margin-top: 10px;
+    font-weight: bold;
+}

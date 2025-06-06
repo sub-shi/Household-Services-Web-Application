@@ -1,0 +1,111 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+nav {
+    background-color: #343a40;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+h2, h3 {
+    text-align: center;
+    color: #0056b3;
+    margin: 20px 0;
+}
+
+li {
+    list-style-type: none;
+    background-color: #fff;
+    padding: 15px;
+    margin: 10px auto;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    max-width: 800px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+li:hover {
+    background-color: #f4f4f4;
+}
+
+strong {
+    color: #333;
+}
+
+form {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+}
+
+form input[type="text"],
+form input[type="number"] {
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: calc(30% - 10px);
+    font-size: 14px;
+}
+
+form button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #0056b3;
+}
+
+p em {
+    color: #dc3545;
+    font-size: 13px;
+    font-style: italic;
+    margin-top: 10px;
+    display: block;
+}
+
+
+form:nth-child(2) button {
+    background-color: #dc3545; 
+}
+
+form:nth-child(2) button:hover {
+    background-color: #a71d2a;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: #ddd;
+    margin: 20px auto;
+    max-width: 800px;
+}

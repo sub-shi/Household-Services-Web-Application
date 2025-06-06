@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookings - Customer Dashboard</title>
+    <link rel="stylesheet" href="/static/customer_bookings.css">
+</head>
+<body>
+    <nav>
+        <a href="/customer_dashboard">Home</a>
+        <a href="/customer_bookings">Bookings</a>
+        <a href="/manage_service_requests">Manage Service Requests</a>
+        <a href="/logout">Logout</a>
+        <a href="/customer_profile">Profile</a>
+    </nav>
+
+    <h2>My Bookings</h2>
+
+    {% if service_requests %}
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Request ID</th>
+                    <th>Service ID</th>
+                    <th>Customer ID</th>
+                    <th>Professional ID</th>
+                    <th>Date of Request</th>
+                    <th>Status</th>
+                    <th>Date of Completion</th>
+                    <th>Remarks</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for request in service_requests %}
+                    <tr>
+                        <td>{{ request.id }}</td>
+                        <td>{{ request.service_id }}</td>
+                        <td>{{ request.customer_id }}</td>
+                        <td>{{ request.professional_id }}</td>
+                        <td>{{ request.date_of_request }}</td>
+                        <td>{{ request.service_status }}</td>
+                        <td>{{ request.date_of_completion if request.date_of_completion else 'N/A' }}</td>
+                        <td>{{ request.remarks if request.remarks else 'No remarks' }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No bookings available at the moment.</p>
+    {% endif %}
+
+</body>
+</html>

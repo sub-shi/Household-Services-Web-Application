@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Customers</title>
+    <link rel="stylesheet" href="/static/manage_customers.css">
+</head>
+<body>
+    <nav>
+        <a href="/admin_dashboard">Home</a>
+        <a href="/manage_customers">Customers</a>
+        <a href="/manage_professionals">Professionals</a>
+        <a href="/manage_services">Services</a>
+        <a href="/admin_bookings">Bookings</a>
+        <a href="/logout">Logout</a>
+    </nav>
+    <h2>Manage Customers</h2>
+    <ul>
+        {% for customer in customers %}
+        <li>
+            {{ customer.name }} - {{customer.username}} - Status:{{customer.status}}
+            <form action="/block_customer/{{ customer.id }}" method="post">
+                <button type="submit">Block</button>
+            </form>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

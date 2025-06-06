@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Dashboard</title>
+    <link rel="stylesheet" href="/static/pro_dashboard.css">
+</head>
+<body>
+    <nav>
+        <a href="/pro_dashboard">Home</a>
+        <a href="/history">History</a>
+        <a href="/logout">Logout</a>
+        <a href="/profile">Profile</a>
+    </nav>
+
+    <h1>Professional Dashboard</h1>
+    
+    <section>
+        <h2>Pending Service Requests</h2>
+        <ul>
+            {% for request in service_requests %}
+                <li>
+                    <strong>Service Name:</strong> {{ request.service.name }}<br>
+                    <strong>Service ID:</strong> {{ request.service_id }}<br>
+                    <strong>Customer ID:</strong> {{ request.customer_id }}<br>
+                    <strong>Status:</strong> {{ request.service_status }}<br>
+    
+                    <form action="/accept_service_request/{{ request.id }}" method="post">
+                        <button type="submit">Accept</button>
+                    </form>
+                    <form action="/reject_service_request/{{ request.id }}" method="post">
+                        <button type="submit">Reject</button>
+                    </form>
+                </li>
+                <hr>
+
+            {% else %}
+                <p>No pending service requests at the moment.</p>
+            {% endfor %}
+        </ul>
+    </section>
+
+    <!-- Graph Section -->
+    <section>
+        <h2>Service Request Status Overview</h2>
+        {{ graph_html|safe }}
+    </section>
+</body>
+</html>

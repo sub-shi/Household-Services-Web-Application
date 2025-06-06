@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Profile</title>
+    <link rel="stylesheet" href="/static/customer_profile.css">
+</head>
+<body>
+    <nav>
+        <a href="/customer_dashboard">Home</a>
+        <a href="/customer_bookings">Bookings</a>
+        <a href="/manage_service_requests">Manage Service Requests</a>
+        <a href="/customer_profile">Profile</a>
+        <a href="/logout">Logout</a>
+    </nav>
+
+    <h2>Profile</h2>
+    <div>
+        <p><strong>Name:</strong> {{ customer.name }}</p>
+        <p><strong>Username:</strong> {{ customer.username }}</p>
+        <p><strong>Status:</strong> {{ customer.status }}</p>
+
+        <!-- Address Section -->
+        <form action="/customer_profile" method="post">
+            <label for="address"><strong>Address:</strong></label><br>
+            <textarea id="address" name="address" rows="3" cols="40">{{ customer.address }}</textarea><br>
+            <button type="submit">Update Address</button>
+        </form>
+
+        {% if message %}
+            <p style="color: green;">{{ message }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
