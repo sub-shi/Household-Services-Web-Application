@@ -84,7 +84,6 @@ household-services-web-app/
 ├── templates/                # HTML templates (Jinja2)
 ├── app.py                    # Main Flask application
 ├── models.py                 # Database models (SQLAlchemy)
-├── forms.py                  # Forms (if using Flask-WTF)
 ├── requirements.txt          # Project dependencies
 ├── README.md                 # Project documentation
 ├── .gitignore                # Files & folders to ignore in git
