@@ -1,14 +1,75 @@
-# Created by venv; see https://docs.python.org/3/library/venv.html
-# Ignore Python virtual environments
-venv/
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
 
-# Ignore system files
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+env/
+.venv/
+ENV/
+env.bak/
+venv.bak/
+bin/
+Scripts/
+lib/
+pyvenv.cfg
+pip-selfcheck.json
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+*.egg
+pip-wheel-metadata/
+
+# Installer logs
+pip-log.txt
+
+# Unit test / coverage
+.coverage
+.cache
+.pytest_cache/
+htmlcov/
+coverage.xml
+
+# Mypy
+.mypy_cache/
+
+# IDEs and editors
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS files
 .DS_Store
 Thumbs.db
 
+# Environment variables and secrets
 .env
+.env.*
+
+# Logs
+*.log
+logs/
+
+# Database files
+*.sqlite3
+*.db
+instance/*.sqlite3
+var/app-instance/*.sqlite3
+
+# Flask instance (ignore runtime files but keep tracked configs if any)
+# Uncomment the following line to ignore the entire instance directory:
+# instance/
+
+# Ignore compiled extensions
+*.so
+
+# Other
+*.pot
+*.mo
 
